@@ -1,0 +1,232 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="x-ua-compatible" content="IE=Edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="css/source-sans-pro.js"></script>
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="lib/jquery.mobile.min.css" rel="stylesheet">
+    <link href="lib/jquery.mobile.structure.min.css" rel="stylesheet">
+    <link href="lib/jquery.mobile.theme.min.css" rel="stylesheet">
+
+    <script src="lib/jquery-1.8.2.min.js"></script>
+    <script src="js/storage/memory-store.js"></script>
+    <script src="lib/iscroll.js"></script>
+    <script src="js/pageLoadInit.js"></script>
+    <script src="lib/jquery.mobile.min.js"></script>
+    <script src="js/index.js"></script>
+
+    <script>
+      $( '#stscan' ).on( 'pageinit',function(event){
+        //alert( 'This page was just enhanced by jQuery Mobile!' );
+        //$('#prodCode').focus();
+
+        document.forms['frm1'].elements['prodCode'].focus();
+      });
+
+      $(document).ready(function() {
+        // Handler for .ready() called.
+        document.forms['frm1'].elements['prodCode'].focus();
+      });
+
+    </script>
+
+  </head>
+  <body>
+
+    <div data-role='page' id='stscan'>
+      <div data-role="header">
+        <a href="index.html" data-icon="home">Home</a>
+        <h1>BLISS - Stock File Scan</h1>
+        <a href="#settings" data-rel="dialog" data-icon="gear">Settings</a>
+      </div>
+      <div data-role="content" class='scroll'>  <!-- scroll class needed for iScroll to scroll area -->
+        <form id='frm1' name='frm1'>
+
+          <label for='prodCode'> Product Code/Description/Package: </label>
+          <input type='text' name='prodCode' id='prodCode' value='' />
+
+          <br/>
+
+          <select name="category" id="category">
+            <option>Category</option>
+            <option value="A">A - PACKAGING/CONTAINERS</option>
+            <option value="B">B - RAW MATERIALS 1</option>
+            <option value="C">C - RAW MATERIALS 2</option>
+            <option value="D">D - INTERMEDIATES</option>
+            <option value="E">E - PACKAGED PRODUCTS</option>
+          </select>
+
+        <br/>
+
+          <fieldset data-role="controlgroup" data-type="horizontal">
+
+            <input type="radio" name="radio-group-1" id="radio1" value="allProducts" checked="checked" />
+            <label for="radio1">All Products</label>
+
+            <input type="radio" name="radio-group-1" id="radio2" value="purchased" />
+            <label for="radio2">Purchased</label>
+
+            <input type="radio" name="radio-group-1" id="radio3" value="manufactured" />
+            <label for="radio3">Manufactured</label>
+
+          </fieldset>
+
+          <br/>
+
+          <fieldset data-role="controlgroup" data-type="horizontal">
+
+            <input type="radio" name="radio-group-2" id="radio4" value="allProducts" checked="checked" />
+            <label for="radio4">All Products</label>
+
+            <input type="radio" name="radio-group-2" id="radio5" value="stopped" />
+            <label for="radio5">Stopped</label>
+
+            <input type="radio" name="radio-group-2" id="radio6" value="live" />
+            <label for="radio6">Live</label>
+
+          </fieldset>
+
+          <br/>
+
+          <fieldset data-role="controlgroup" data-type="horizontal">
+
+            <input type="radio" name="radio-group-3" id="radio7" value="allProducts" checked="checked" />
+            <label for="radio7">All Products</label>
+
+            <input type="radio" name="radio-group-3" id="radio8" value="freeStock" />
+            <label for="radio8">Items With Free Stock</label>
+
+            <input type="radio" name="radio-group-3" id="radio9" value="noFreeStock" />
+            <label for="radio9">Items Without Free Stock</label>
+
+          </fieldset>
+
+          <br/>
+
+          <a href='#stscanInfo'> <input type='button' name='btnContinue' id='btnContinue' value='Continue' data-inline='true'/> </a>
+
+        </form>
+      </div>
+
+      <script>
+
+        $( "#btnContinue" ).bind( "click", function() {
+          submit();
+        });
+      </script>
+
+    </div>
+
+    <!-- START SETTINGS POP UP DIALOG BOX HTML -->
+    <div data-role="page" id="settings" data-theme="d">
+      <div data-role="header" data-position="fixed"><h1>Settings</h1></div>
+      <div data-role="content">
+
+        <table>
+          <tr>
+            <td>
+              URL
+            </td>
+            <td>
+              <input type='text' name='urlSetting' >
+            </td>
+          </tr>
+        </table>
+
+        <table>
+          <tr>
+            <td>Setting 1</td>    <td>  <input type="checkbox" name="setting" value="setting1"> </td>
+          </tr>
+          <tr>
+            <td>Setting 2</td>    <td>  <input type="checkbox" name="setting" value="setting2"> </td>
+          </tr>
+        </table>
+
+        <select name="minute-select" id="minute-select">
+          <option>Settings</option>
+          <option value='100'>100</option>
+          <option value='200'>200</option>
+          <option value='300'>300</option>
+        </select>
+
+        <div data-role='fieldcontain'>
+          <label>Settings</label>
+          <input type="range" name="" id="" min="10" max="110" value="80" />
+        </div>
+
+        <a href="#" data-rel="back" data-role="button">Save Settings</a>
+      </div>
+    </div>
+    <!-- END SETTINGS POP UP DIALOG BOX HTML -->
+
+
+    <!-- page showing information after continue button -->
+
+    <div data-role='page' id='stscanInfo' data-theme="d">
+      <div data-role="header">
+        <a href="index.html" data-icon="home">Home</a>
+        <h1>BLISS - Stock File Scan </h1>
+        <a href="#settings" data-rel="dialog" data-icon="gear">Settings</a>
+      </div>
+      <div data-role="content" class='scroll'>  <!-- scroll class needed for iScroll to scroll area -->
+        <form id='frm2' name='frm2'>
+
+          <label for='prodDesc'> Product: </label>
+          <input type='text' name='prodDesc' id='prodDesc' value='' />
+
+          <br/>
+
+          <label for='physical'> Physical: </label>
+          <input type='text' name='physical' id='physical' value='' />
+
+          <br/>
+
+          <label for='allocated'> Allocated: </label>
+          <input type='text' name='allocated' id='allocated' value='' />
+
+          <br/>
+
+          <label for='free'> Free: </label>
+          <input type='text' name='free' id='free' value='' />
+
+          <br/>
+
+          <label for='onOrder'> On Order: </label>
+          <input type='text' name='onOrder' id='onOrder' value='' />
+
+          <br/>
+
+          <label for='fwdProdUsage'> Forward Product Usage: </label>
+          <input type='text' name='fwdProdUsage' id='fwdProdUsage' value='' />
+
+          <br/>
+
+          <label for='fwdOrders'> Forward Orders: </label>
+          <input type='text' name='fwdOrders' id='fwdOrders' value='' />
+
+          <br/>
+
+          <label for='backOrders'> Back Orders: </label>
+          <input type='text' name='backOrders' id='backOrders' value='' />
+
+          <br/>
+
+          <label for='allLocns'> All Locations: </label>
+          <input type='text' name='allLocns' id='allLocns' value='' />
+
+          <br/>
+
+
+        </form>
+      </div>
+
+    </div>
+
+    <!-- end of page showing information -->
+
+    <script src="phonegap.js"></script>
+
+  </body>
+</html>

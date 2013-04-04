@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "org.driveerp.bdmlogistics"
+        versionCode="10"
+        version   = "1.0.0">
+
+    <!-- versionCode is optional and Android only -->
+
+    <name>Stock File Scan</name>
+
+    <description>
+        A quick way to view your Stock Information
+    </description>
+
+    <author href="http://www.drivecomputing.co.uk" email="hussain.fiaz@drivecomputing.co.uk">
+        Drive Computing Ltd
+    </author>
+
+</widget>
