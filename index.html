@@ -19,18 +19,44 @@
 
     <script>
       $( '#stscan' ).on( 'pageinit',function(event){
-        //alert( 'This page was just enhanced by jQuery Mobile!' );
-        //$('#prodCode').focus();
-
         document.forms['frm1'].elements['prodCode'].focus();
       });
 
       $(document).ready(function() {
-        // Handler for .ready() called.
         document.forms['frm1'].elements['prodCode'].focus();
       });
 
     </script>
+
+    <style>
+
+      .info{
+        font-weight:bolder;
+        background-color:lightblue;
+        border-radius:6px;
+        float:left;
+        margin-left:5px;
+        margin-right:10px;
+        color: green;
+      }
+
+      .label {
+        float:left;
+      }
+
+      #space{
+        width:10px;
+      }
+
+      .ui-block-b{
+        font-weight:bolder;
+        background-color:lightblue;
+        border-radius:6px;
+        color: green;
+      }
+
+    </style>
+
 
   </head>
   <body>
@@ -162,7 +188,7 @@
     <!-- END SETTINGS POP UP DIALOG BOX HTML -->
 
 
-    <!-- page showing information after continue button -->
+    <!-- Form 3 -->
 
     <div data-role='page' id='stscanInfo' data-theme="d">
       <div data-role="header">
@@ -173,58 +199,70 @@
       <div data-role="content" class='scroll'>  <!-- scroll class needed for iScroll to scroll area -->
         <form id='frm2' name='frm2'>
 
-          <label for='prodDesc'> Product: </label>
-          <input type='text' name='prodDesc' id='prodDesc' value='' />
+          <label class='label' for='prodDesc'> Product Code: </label>
+          <div name='code' id='code' class='info'></div>
+          <div name='prodDesc' id='prodDesc' class='info'></div>
 
-          <br/>
 
-          <label for='physical'> Physical: </label>
-          <input type='text' name='physical' id='physical' value='' />
+          <br/> <br/> <br/>
 
-          <br/>
+          <div data-role='fieldcontain'>
+          <label class='label' for='physical'> Physical: </label>
+          <div name='physical' id='physical' class='info'></div>
 
-          <label for='allocated'> Allocated: </label>
-          <input type='text' name='allocated' id='allocated' value='' />
+          <label class='label' for='allocated'> Allocated: </label>
+          <div name='allocated' id='allocated' class='info'></div>
 
-          <br/>
+          <label class='label' for='free'> Free: </label>
+          <div name='free' id='free' class='info'></div>
+          </div>
 
-          <label for='free'> Free: </label>
-          <input type='text' name='free' id='free' value='' />
+          <br/> <br/> <br/>
 
-          <br/>
+          <div class='ui-grid-b'>
+          <label class="ui-block-a" for='fwdProdUsage'> Forward Production Usage: </label>
+          <div name='fwdProdUsage' id='fwdProdUsage' class="ui-block-b"></div>
+          <div class="ui-block-c"></div>
+          </div>
 
-          <label for='onOrder'> On Order: </label>
-          <input type='text' name='onOrder' id='onOrder' value='' />
+          <br/> <br/> <br/>
 
-          <br/>
+          <div class='ui-grid-b'>
+          <label class="ui-block-a" for='onOrder'> On Order: </label>
+          <div name='onOrder' id='onOrder' class="ui-block-b"></div>
+          <div class="ui-block-c"></div>
+          </div>
 
-          <label for='fwdProdUsage'> Forward Product Usage: </label>
-          <input type='text' name='fwdProdUsage' id='fwdProdUsage' value='' />
+          <br/> <br/> <br/>
 
-          <br/>
+          <div class='ui-grid-b'>
+          <label class="ui-block-a" for='fwdOrders'> Forward Orders: </label>
+          <div name='fwdOrders' id='fwdOrders' class="ui-block-b"></div>
+          <div class="ui-block-c"></div>
+          </div>
 
-          <label for='fwdOrders'> Forward Orders: </label>
-          <input type='text' name='fwdOrders' id='fwdOrders' value='' />
+          <br/> <br/> <br/>
 
-          <br/>
+          <div class='ui-grid-b'>
+          <label class="ui-block-a" for='backOrders'> Back Orders: </label>
+          <div name='backOrders' id='backOrders' class="ui-block-b"></div>
+          <div class="ui-block-c"></div>
+          </div>
 
-          <label for='backOrders'> Back Orders: </label>
-          <input type='text' name='backOrders' id='backOrders' value='' />
+          <br/> <br/> <br/>
 
-          <br/>
-
-          <label for='allLocns'> All Locations: </label>
-          <input type='text' name='allLocns' id='allLocns' value='' />
-
-          <br/>
-
+          <div class='ui-grid-b'>
+          <label class="ui-block-a" for='allLocns'> All Locations: </label>
+          <div name='allLocns' id='allLocns' class="ui-block-b"></div>
+          <div class="ui-block-c"></div>
+          </div>
 
         </form>
       </div>
 
     </div>
 
-    <!-- end of page showing information -->
+    <!-- End Form 3 -->
 
     <script src="phonegap.js"></script>
 

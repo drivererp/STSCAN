@@ -22,18 +22,21 @@ function submit()
                  {
                     if (data.errmsg == "")
                     {
-                        //  alert(data.prodDesc);
-                        $('#prodDesc').val(data.prodDesc);
-                        $('#physical').val(data.physStock);
+                        $('#code').html(data.prodCode);
 
-                        $('#allocated').val(data.allocated);
-                        $('#free').val(data.freeStock);
+                        $('#prodDesc').html(data.prodDesc);
+                        $('#physical').html(data.physStock);
 
-                        $('#onOrder').val(data.onOrder);
-                        $('#fwdOrders').val(data.fwdOrder);
+                        $('#allocated').html(data.allocated);
+                        $('#free').html(data.freeStock);
 
-                        $('#backOrders').val(data.backOrder);
-                        $('#allLocns').val(data.allLocations);
+                        $('#fwdProdUsage').html('2000.000');
+
+                        $('#onOrder').html(data.onOrder);
+                        $('#fwdOrders').html(data.fwdOrder);
+
+                        $('#backOrders').html(data.backOrder);
+                        $('#allLocns').html(data.allLocations);
                     }
                     else
                     {
